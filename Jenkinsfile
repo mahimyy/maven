@@ -20,7 +20,7 @@ pipeline {
 			     sh 'sudo docker tag java-repo:$BUILD_TAG technetgalaxy/pipeline-java:$BUILD_TAG'
 			     }
 		}
-		stage("docker-hub") {
+		stage("dockerhub") {
 		     steps {
 		             withCredentials([string(credentialsId: 'docker_hub_login', variable: 'docker_hub_login')]) 
 			     sh 'sudo docker login -u technetgalaxy -p $(docker_hub_login)'
