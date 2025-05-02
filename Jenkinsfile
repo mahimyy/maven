@@ -22,8 +22,8 @@ pipeline {
                 }
                 stage("dockerlogin") {
                      steps { 
-		             withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'dockerhub_pass')])
-			     sh 'docker login -u technetgalaxy -p ${dockerhub_pass}'
+		             withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'dockerhub_pass_var')])
+			     sh 'docker login -u technetgalaxy -p ${dockerhub_pass_var}'
 			     sh 'docker push technetgalaxy/pipeline-java:$BUILD_TAG'
 		     }
 		      
