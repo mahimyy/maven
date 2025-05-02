@@ -23,8 +23,7 @@ pipeline {
                 stage("dockerhub") {
                      steps {
                              withCredentials([usernameColonPassword(credentialsId: 'docker_hub_passwd', variable: 'docker_hub_passwd')]) 
-							 sh 'sudo docker login -u technetgalaxy -p $(docker_hub_passwd)'
-							 sh 'sudo docker push technetgalaxy/pipeline-java:$BUILD_TAG'
+							 sh "sudo docker login -u technetgalaxy -p $(docker_hub_passwd)"
                       }
 		}
       }
