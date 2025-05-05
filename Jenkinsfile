@@ -22,11 +22,17 @@ pipeline {
                 }
                 stage("dockerlogin") {
                      steps { 
-		             withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'dockerhub_pass_var')])
-			     sh 'docker login -u technetgalaxy -p $(dockerhub_pass_var)'
+		             withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'dockerhub_pass_var')]) {
+			     sh 'docker login -u technetgalaxy -p ${dockerhub_pass_var}'
 			     sh 'docker push technetgalaxy/pipeline-java:$BUILD_TAG'
+			     }
 		     }
 		      
 		}
-      }
+		stage("QAT TESTING") {
+		     steps { 
+		              sh 'sudo docker run -dit -p 8080:8080 --name web1tom technetgalaxy/pipeline-java:$BUILD_TAG'
+                    }
+	    }
+        }
 }
