@@ -33,7 +33,7 @@ pipeline {
 		     steps {  
 		              sh 'sudo docker rm -f $(sudo docker ps -a -q)'
  
-		              sh 'sudo docker run -dit --name web1tom -p 8080:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
+		              sh 'sudo docker run -dt --name web2tom -p 8080:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
                     }
 	    }
         }
