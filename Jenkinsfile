@@ -35,6 +35,9 @@ pipeline {
  
 		              sh 'sudo docker run -dt --name web3tom -p 8085:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
                     }
-	    }
+	       }
+	       stage("test-website") {
+	             steps { 
+		              sh 'curl http://18.116.37.123:8085/java-web-app'
         }
 }
