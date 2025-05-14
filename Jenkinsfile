@@ -3,11 +3,18 @@ pipeline {
                label 'slave1'
                }
         stages {
+	        
                 stage("SCM") {
                      steps {
                             git 'https://github.com/technet001/maven-web-application.git'
                             }
                           }
+	        stage("remove iamge and container") {
+		     steps {
+		            sh 'sudo docker image prune -a'
+			    sh 'docker rm -f $(sudo docker ps -a -q)'
+			    }
+			   }
 
                 stage("build") {
                      steps {
