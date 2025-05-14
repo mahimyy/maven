@@ -31,13 +31,13 @@ pipeline {
 		}
 		stage("QAT TESTING") {
 		     steps {  
-                                      
-		              sh 'sudo docker run -dt --name web4tom -p 8087:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
+                              sh 'sudo docker rm -f $(sudo docker ps -a -q)        
+		              sh 'sudo docker run -dt --name web5tom -p 8085:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
                     } 
 	       }
 	       stage("test-website") {
 	             steps { 
-		              sh 'sudo curl http://18.191.240.40:8087'
+		              sh 'sudo curl http://18.191.240.40:8085'
                        }
 	       }
 	        stage("approval stage") {
