@@ -38,7 +38,7 @@ pipeline {
 	       }
 	       stage("test-website") {
 	             steps { 
-		              sh 'sudo curl http://18.116.37.123:8085'
+		              sh 'sudo curl http://18.117.103.166:8085'
                        }
 	       }
 	 }
