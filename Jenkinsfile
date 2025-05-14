@@ -32,12 +32,12 @@ pipeline {
 		stage("QAT TESTING") {
 		     steps {  
                               sh 'sudo docker rm -f $(sudo docker ps -a -q)'        
-		              sh 'sudo docker run -dt --name web5tom -p 8085:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
+		              sh 'sudo docker run -dt --name web6tom -p 8088:8080 technetgalaxy/pipeline-java:$BUILD_TAG'
                     } 
 	       }
 	       stage("test-website") {
 	             steps { 
-		              sh 'sudo curl http://18.191.240.40:8085'
+		              sh 'sudo curl http://18.191.240.40:8088'
                        }
 	       }
 	        stage("approval stage") {
