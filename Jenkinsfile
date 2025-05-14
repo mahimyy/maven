@@ -3,8 +3,7 @@ pipeline {
                label 'slave1'
                }
           stages {
-	        
-                stage("SCM") {
+	        stage("SCM") {
                      steps {
                             git 'https://github.com/technet001/maven-web-application.git'
                             }
