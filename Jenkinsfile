@@ -37,7 +37,7 @@ pipeline {
 	       }
 	       stage("test-website") {
 	             steps { 
-		              sh 'sudo curl http://18.191.240.40:8082'
+		              sh 'sudo curl http://localhost:8082'
                        }
 	       }
 	        stage("approval stage") {
