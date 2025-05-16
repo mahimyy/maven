@@ -38,7 +38,7 @@ pipeline {
 	        stage("test-website") {
 	             steps { 
 		             sh 'sudo su -'
-		             sh 'sudo curl http://3.133.125.146:8090'
+		             sh 'sudo curl --ipv4 http://3.133.125.146:8090'
 
                        }
 	       }
