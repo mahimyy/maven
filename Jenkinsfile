@@ -37,7 +37,7 @@ pipeline {
 	       }
 	        stage("test-website") {
 	             steps { 
-		              sh "sudo curl --silent http://localhost:49153"
+		              sh 'sudo curl --silent http://3.133.125.146:49153'
                        }
 	       }
 	        stage("approval stage") {
