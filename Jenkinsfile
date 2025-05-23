@@ -52,5 +52,36 @@ pipeline {
 				 }
                         }
                 }
-	 }
+		stage('deployment to production') {
+		      agent {
+		            label "node1"
+			    }
+		      steps {
+		          
+			  sshagent(['ec2-access-cred']) {
+			  
+			   sh 'ssh -o StrictHostKeyChecking=no ec2-user@35.171.26.240 sudo docker run -d -p 49153:8080 --name webtest1 technetgalaxy/pipeline-java:$BUILD_TAG'
+	         }
+             }
+	  }
+     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
